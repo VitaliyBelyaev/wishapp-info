@@ -9,7 +9,7 @@ You can also group your wishes with labels and share wishes by the label.
 
 Wishapp is an open-source project, you can view code in the project [repository](https://github.com/VitaliyBelyaev/WishApp).
 
-[Privacy Policy](privacy_policy.html)<br/>
+[Privacy Policy](privacy_policy.md)<br/>
 [Terms And Conditions](terms_and_conditions.html)<br/>
 [Support](support.md)<br/>
 
