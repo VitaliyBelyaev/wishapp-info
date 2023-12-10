@@ -10,8 +10,8 @@ You can also group your wishes with labels and share wishes by the label.
 Wishapp is an open-source project, you can view code in the project [repository](https://github.com/VitaliyBelyaev/WishApp).
 
 [Privacy Policy](privacy_policy.html)<br/>
-[Terms And Conditions](privacy_policy.html)<br/>
-[Support](privacy_policy.html)<br/>
+[Terms And Conditions](terms_and_conditions.html)<br/>
+[Support](support.md)<br/>
 
 ## Download app
 App is available for Android and iOS
