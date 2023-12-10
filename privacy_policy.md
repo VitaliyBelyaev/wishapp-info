@@ -1,4 +1,4 @@
-**Privacy Policy**
+## Privacy Policy
 
 Vitaliy Belyaev built the Wishapp app as an Open Source app. This SERVICE is provided by Vitaliy Belyaev at no cost and is intended for use as is.
 
