@@ -1,5 +1,4 @@
-
-<img src="https://github.com/VitaliyBelyaev/my-website-sample/assets/21678329/5b28b2f3-0f51-406d-b333-fcc6d45e36b8" width="100"/> 
+<img src="https://github.com/VitaliyBelyaev/wishapp-info/assets/21678329/ecbcaac2-b6d6-455d-9bb3-3c7fb6bb94f9" width="100"/> 
 
 # Wishapp - app for tracking and sharing your wishes
 
