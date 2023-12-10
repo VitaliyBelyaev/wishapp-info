@@ -1,5 +1,5 @@
 
-<img src="https://github.com/VitaliyBelyaev/my-website-sample/assets/21678329/5b28b2f3-0f51-406d-b333-fcc6d45e36b8" width="200"/> 
+<img src="https://github.com/VitaliyBelyaev/my-website-sample/assets/21678329/5b28b2f3-0f51-406d-b333-fcc6d45e36b8" width="100"/> 
 
 # Wishapp - app for tracking and sharing your wishes
 
@@ -10,7 +10,7 @@ You can also group your wishes with labels and share wishes by the label.
 Wishapp is an open-source project, you can view code in the project [repository](https://github.com/VitaliyBelyaev/WishApp).
 
 [Privacy Policy](privacy_policy.md)<br/>
-[Terms And Conditions](terms_and_conditions.html)<br/>
+[Terms And Conditions](terms_and_conditions.md)<br/>
 [Support](support.md)<br/>
 
 ## Download app
