@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign langs = "en,ru,de,es,fr,pt,uk" | split: "," -%}
+{%- assign icon = "/assets/images/icon-192.webp" -%}
+{%- case page.ref -%}
+  {%- when "support" -%}{%- assign slug = "support.html" -%}
+  {%- when "privacy" -%}{%- assign slug = "privacy_policy.html" -%}
+  {%- when "terms" -%}{%- assign slug = "terms_and_conditions.html" -%}
+  {%- else -%}{%- assign slug = "" -%}
+{%- endcase -%}
+{%- assign legal = false -%}
+{%- if page.ref == "privacy" or page.ref == "terms" -%}{%- assign legal = true -%}{%- endif -%}
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <title>{{ page.title | default: t.name }}</title>
+  {%- if page.description %}
+  <meta name="description" content="{{ page.description | escape }}">
+  {%- endif %}
+  {%- if legal %}
+  <link rel="canonical" href="{{ site.url }}/{{ slug }}">
+  {%- elsif page.ref %}
+  {%- for l in langs %}
+  <link rel="alternate" hreflang="{{ l }}" href="{{ site.url }}{{ site.data.i18n[l].home }}{{ slug }}">
+  {%- endfor %}
+  {%- endif %}
+  <link rel="icon" type="image/png" href="/assets/images/icon-64.png">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff; --fg: #24292e; --muted: #57606a; --link: #0366d6;
+      --border: #d0d7de; --divider: #eaecef; --subtle: #f6f8fa; --code-bg: rgba(27, 31, 35, .05);
+      --menu-bg: #ffffff; --shadow: rgba(140, 149, 159, .25);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --link: #4493f8;
+        --border: #3d444d; --divider: #30363d; --subtle: #161b22; --code-bg: rgba(110, 118, 129, .4);
+        --menu-bg: #161b22; --shadow: rgba(1, 4, 9, .85);
+      }
+    }
+    body { background: var(--bg); color: var(--fg); }
+    a, .markdown-body a { color: var(--link); }
+    .markdown-body h1, .markdown-body h2 { border-bottom-color: var(--divider); }
+    .markdown-body code { background-color: var(--code-bg); }
+    .markdown-body img { background-color: transparent; }
+    .markdown-body hr { background-color: var(--divider); }
+    .markdown-body blockquote { color: var(--muted); border-left-color: var(--divider); }
+    .markdown-body .site-header { display: flex; align-items: center; gap: 12px; min-height: 36px; margin-bottom: 24px; }
+    .markdown-body .brand { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 600; color: var(--fg); }
+    .markdown-body .brand:hover { text-decoration: none; }
+    .markdown-body .brand img { border-radius: 7px; }
+    .markdown-body .lang-menu { position: relative; margin-left: auto; }
+    .markdown-body .lang-menu summary { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; color: var(--fg); cursor: pointer; list-style: none; user-select: none; }
+    .markdown-body .lang-menu summary::-webkit-details-marker { display: none; }
+    .markdown-body .lang-menu summary::after { content: ""; margin-top: 4px; border: 4px solid transparent; border-top-color: currentColor; }
+    .markdown-body .lang-menu ul { position: absolute; right: 0; top: calc(100% + 4px); z-index: 10; min-width: 170px; margin: 0; padding: 4px 0; list-style: none; background: var(--menu-bg); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 24px var(--shadow); }
+    .markdown-body .lang-menu li, .markdown-body .lang-menu li + li { margin: 0; }
+    .markdown-body .lang-menu a { display: block; padding: 6px 14px; color: var(--fg); }
+    .markdown-body .lang-menu a:hover { background: var(--subtle); text-decoration: none; }
+    .markdown-body .lang-menu a[aria-current] { font-weight: 600; }
+    .markdown-body .hero { text-align: center; margin-bottom: 32px; }
+    .markdown-body .hero img.app-icon { border-radius: 22px; }
+    .markdown-body .hero h1 { margin: 12px 0 8px; padding: 0; border: 0; }
+    .markdown-body .hero .tagline { max-width: 520px; margin: 0 auto 12px; font-size: 18px; color: var(--muted); }
+    .markdown-body .legal-note { padding: 8px 12px; background: var(--subtle); border: 1px solid var(--border); border-radius: 6px; color: var(--muted); }
+    .markdown-body .site-footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--divider); font-size: 15px; color: var(--muted); }
+    .markdown-body .site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 8px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container-lg px-3 my-4 markdown-body">
+    <header class="site-header">
+      {%- if page.ref != "index" %}
+      <a class="brand" href="{{ t.home }}"><img src="{{ icon }}" width="28" height="28" alt="">{{ t.name }}</a>
+      {%- endif %}
+      <details class="lang-menu">
+        <summary aria-label="{{ t.lang_label }}">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm5.9 7.25h-2.66a12.3 12.3 0 0 0-1.07-4.9 6.52 6.52 0 0 1 3.73 4.9ZM8 1.6c.7.9 1.6 2.86 1.74 5.65H6.26C6.4 4.46 7.3 2.5 8 1.6ZM5.83 2.35a12.3 12.3 0 0 0-1.07 4.9H2.1a6.52 6.52 0 0 1 3.73-4.9ZM2.1 8.75h2.66c.08 1.86.46 3.55 1.07 4.9a6.52 6.52 0 0 1-3.73-4.9ZM8 14.4c-.7-.9-1.6-2.86-1.74-5.65h3.48C9.6 11.54 8.7 13.5 8 14.4Zm2.17-.75c.61-1.35.99-3.04 1.07-4.9h2.66a6.52 6.52 0 0 1-3.73 4.9Z"/></svg>
+          {{ t.lang_name }}
+        </summary>
+        <ul>
+          {%- for l in langs %}
+          {%- assign lt = site.data.i18n[l] %}
+          <li><a href="{{ lt.home }}{{ slug }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == lang %} aria-current="page"{% endif %}>{{ lt.lang_name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+    </header>
+
+    {%- if legal and t.legal_note != "" %}
+    <p class="legal-note">{{ t.legal_note }}</p>
+    {%- endif %}
+
+    {{ content }}
+
+    <footer class="site-footer">
+      <nav>
+        <a href="{{ t.home }}support.html">{{ t.support }}</a>
+        <a href="{{ t.home }}privacy_policy.html">{{ t.privacy }}</a>
+        <a href="{{ t.home }}terms_and_conditions.html">{{ t.terms }}</a>
+      </nav>
+      <p>{{ t.open_source }}</p>
+    </footer>
+  </div>
+</body>
+</html>
